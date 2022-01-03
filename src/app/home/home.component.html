@@ -1,12 +1,16 @@
 <div class="user-list-wrapper">
-    <mat-card class="user-card" *ngFor="let user of listUsers">
-        <mat-card-title-group>
-            <mat-card-title>{{user.first_name}}&nbsp;{{user.last_name}}</mat-card-title>
-            <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
-            <img mat-card-md-image [src]="user.avatar">
-        </mat-card-title-group>
-        <button type="submit" mat-raised-button color="primary" (click)="showUserDetails(user)">
-            View Details
-        </button>
-    </mat-card>
+    <div class="user-list-inner-wrapper">
+        <div class="user-list" *ngFor="let user of listUsers">
+            <mat-card class="user-card">
+                <mat-card-title-group>
+                    <mat-card-title>{{user.first_name}}&nbsp;{{user.last_name}}</mat-card-title>
+                    <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+                    <img mat-card-md-image [src]="user.avatar">
+                </mat-card-title-group>
+                <button type="submit" mat-raised-button color="primary" (click)="showUserDetails(user)">
+                    View Details
+                </button>
+            </mat-card>
+        </div>
+    </div>
 </div>
