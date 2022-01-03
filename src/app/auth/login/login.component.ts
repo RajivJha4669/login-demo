@@ -30,8 +30,10 @@ export class LoginComponent implements OnInit {
   public async loginFormSubmit(form: FormGroup) {
     this.isLoading = true;
     form.markAllAsTouched();
-    if (form.invalid)
+    if (form.invalid) {
+      this.isLoading = false;
       return;
+    }
     await this.authService.login(form.value);
     this.isLoading = false;
   }
