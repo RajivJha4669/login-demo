@@ -1,0 +1,12 @@
+<div class="user-details-wrapper">
+    <mat-card class="user-card">
+        <mat-card-title-group>
+            <mat-card-title>{{userDetails.first_name}}&nbsp;{{userDetails.last_name}}</mat-card-title>
+            <mat-card-subtitle>{{userDetails.email}}</mat-card-subtitle>
+            <img mat-card-md-image [src]="userDetails.avatar">
+        </mat-card-title-group>
+        <button type="submit" mat-raised-button color="primary" (click)="userList()">
+            Go back to user list
+        </button>
+    </mat-card>
+</div>

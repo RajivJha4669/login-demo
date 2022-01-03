@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+    <mat-card class="my-card">
+        <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit(loginForm)">
+            <h1>Login</h1>
+            <mat-card-content>
+                <div class="input-wrapper">
+                    <mat-form-field>
+                        <input matInput formControlName="email" type="text" placeholder="Email`">
+                        <mat-error
+                            *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+                            Required field</mat-error>
+                        <mat-error
+                            *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched && !loginForm.get('email')?.hasError('required')">
+                            Invalid email</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="input-wrapper">
+                    <mat-form-field>
+                        <input formControlName="password" matInput [type]="isPasswordVisible?'text':'password'"
+                            placeholder="Password`">
+                        <mat-icon matSuffix (click)="toggleVisibility()">
+                            {{isPasswordVisible?'visibility_on':'visibility_off'}}</mat-icon>
+                        <mat-error
+                            *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                            Required field
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <button type="submit" mat-raised-button color="primary">
+                <mat-icon matPrefix *ngIf="isLoading">
+                    <mat-spinner diameter="20" color="accent"></mat-spinner>
+                </mat-icon>
+                Login
+            </button>
+        </form>
+
+    </mat-card>
+</div>
